@@ -1,10 +1,7 @@
 package com.daniking.throwabletorch.registry;
 
 import com.daniking.throwabletorch.ThrowableTorch;
-import com.daniking.throwabletorch.entity.ThrowableClayTorchEntity;
-import com.daniking.throwabletorch.entity.ThrowableMagmaTorchEntity;
-import com.daniking.throwabletorch.entity.ThrowableSlimeTorchEntity;
-import com.daniking.throwabletorch.entity.ThrowableTorchEntity;
+import com.daniking.throwabletorch.entity.*;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -51,5 +48,6 @@ public class ModEntities {
                     .trackRangeBlocks(4).trackedUpdateRate(10)
                     .build()
     );
+
 
 }

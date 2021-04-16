@@ -42,12 +42,13 @@ public class ThrowableTorchEntity extends ThrownItemEntity {
 
     }
 
-    Boolean hasHit = false;
+        Boolean hasHit = false;
 
     @Override
     protected void onBlockHit(BlockHitResult hit) {
         Direction direction = hit.getSide();
         BlockPos placeAt = hit.getBlockPos().offset(direction);
+
 
         if (!hasHit && direction == Direction.UP) {
             world.setBlockState(placeAt, Blocks.TORCH.getDefaultState());
@@ -55,7 +56,7 @@ public class ThrowableTorchEntity extends ThrownItemEntity {
         } else if (!hasHit && direction == Direction.NORTH) {
             world.setBlockState(placeAt, Blocks.WALL_TORCH.getDefaultState().with(WallTorchBlock.FACING, Direction.NORTH));
             hasHit = true;
-        } else if (!hasHit && direction == Direction.SOUTH) {
+         } else if (!hasHit && direction == Direction.SOUTH) {
             world.setBlockState(placeAt, Blocks.WALL_TORCH.getDefaultState().with(WallTorchBlock.FACING, Direction.SOUTH));
             hasHit = true;
         } else if (!hasHit && direction == Direction.WEST) {
@@ -66,6 +67,8 @@ public class ThrowableTorchEntity extends ThrownItemEntity {
             hasHit = true;
         }
     }
+
+
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {

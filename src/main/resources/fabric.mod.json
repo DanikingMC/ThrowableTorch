@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "throwabletorch",
-  "version": "1.1",
+  "version": "1.2",
 
   "name": "ThrowableTorch",
   "description": "Always wished you had some way to light up that dark ledge above you?  Now, with a few slimeballs (or some clay) you too can create a throwable torch.",
@@ -14,7 +14,7 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/projectiletutorial/icon.png",
+  "icon": "assets/throwabletorch/icon.png",
 
   "environment": "*",
   "entrypoints": {

@@ -1,40 +1,32 @@
 {
   "schemaVersion": 1,
   "id": "throwabletorch",
-  "version": "1.2.0",
+  "version": "${version}",
 
   "name": "ThrowableTorch",
-  "description": "Always wished you had some way to light up that dark ledge above you? Now, with a slimeball; honeycomb; magma cream or clay you can create a throwable torch.",
+  "description": "ThrowableTorch Ported to Fabric.",
   "authors": [
-    "Daniking"
+    "Danik1ngRD"
   ],
+
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/throwabletorch-fabric",
-    "sources": "https://github.com/DanikingMC/ThrowableTorch"
+    "sources": "https://github.com/DanikingMC/ThrowableTorch",
     "issues": "https://github.com/DanikingMC/ThrowableTorch/issues"
   },
-
   "license": "CC0-1.0",
-  "icon": "assets/projectiletutorial/icon.png",
-
-  "environment": "*",
+  "icon": "assets/throwabletorch/icon.png",
   "entrypoints": {
     "main": [
-      "com.daniking.throwabletorch.ThrowableTorch"
+      "daniking.throwabletorch.common.ThrowableTorch"
     ],
     "client": [
-      "com.daniking.throwabletorch.client.ThrowableTorchClient"
+      "daniking.throwabletorch.client.ThrowableTorchClient"
     ]
   },
-  "mixins": [
-  ],
-
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": "*",
     "fabric": "*",
-    "minecraft": "1.16.x"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "minecraft": "1.16.*"
   }
 }

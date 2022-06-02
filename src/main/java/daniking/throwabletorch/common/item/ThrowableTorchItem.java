@@ -37,25 +37,25 @@ public class ThrowableTorchItem extends Item {
                 case SLIME -> {
                     ThrowableSlimeTorchEntity slimeTorchEntity = new ThrowableSlimeTorchEntity(world, user);
                     slimeTorchEntity.setItem(stackInHand);
-                    slimeTorchEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
+                    slimeTorchEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
                     world.spawnEntity(slimeTorchEntity);
                 }
                 case CLAY -> {
                     ThrowableClayTorchEntity clayTorchEntity = new ThrowableClayTorchEntity(world, user);
                     clayTorchEntity.setItem(stackInHand);
-                    clayTorchEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
+                    clayTorchEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
                     world.spawnEntity(clayTorchEntity);
                 }
                 case MAGMA -> {
                     ThrowableMagmaTorchEntity magmaTorchEntity = new ThrowableMagmaTorchEntity(world, user);
                     magmaTorchEntity.setItem(stackInHand);
-                    magmaTorchEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
+                    magmaTorchEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
                     world.spawnEntity(magmaTorchEntity);
                 }
                 case HONEYCOMB -> {
                     ThrowableHoneyCombEntity honeyCombEntity = new ThrowableHoneyCombEntity(world, user);
                     honeyCombEntity.setItem(stackInHand);
-                    honeyCombEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
+                    honeyCombEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
                     world.spawnEntity(honeyCombEntity);
                 }
             }

@@ -1,7 +1,7 @@
 package daniking.throwabletorch.client.network.packet;
 
 import daniking.throwabletorch.common.network.packet.EntitySpawnPacket;
-import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -13,20 +13,20 @@ import java.util.UUID;
 public class ModEntityPacket {
 
     public static void handle() {
-        ClientSidePacketRegistry.INSTANCE.register(EntitySpawnPacket.ID, (ctx, byteBuf) -> {
+        ClientPlayNetworking.registerGlobalReceiver(EntitySpawnPacket.ID, (client, handler, byteBuf, responseSender) -> {
             EntityType<?> et = Registry.ENTITY_TYPE.get(byteBuf.readVarInt());
             UUID uuid = byteBuf.readUuid();
             int entityId = byteBuf.readVarInt();
             Vec3d pos = EntitySpawnPacket.PacketBufUtil.readVec3d(byteBuf);
             float pitch = EntitySpawnPacket.PacketBufUtil.readAngle(byteBuf);
             float yaw = EntitySpawnPacket.PacketBufUtil.readAngle(byteBuf);
-            ctx.getTaskQueue().execute(() -> {
+            client.execute(() -> {
                 if (MinecraftClient.getInstance().world == null)
                     throw new IllegalStateException("Tried to spawn entity in a null world!");
                 Entity entity = et.create(MinecraftClient.getInstance().world);
                 if (entity == null)
                     throw new IllegalStateException("Failed to create instance of entity \"" + Registry.ENTITY_TYPE.getId(et) + "\"!");
-                entity.updateTrackedPosition(pos);
+                entity.updateTrackedPosition(pos.getX(), pos.getY(), pos.getZ());
                 entity.setPos(pos.getX(), pos.getY(), pos.getZ());
                 entity.setPitch(pitch);
                 entity.setYaw(yaw);;
